@@ -1,0 +1,17 @@
+{
+    "name": "Domain.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6eaa6940223d499bbebab641c96be187",
+        "GUID:52fe65892b7d4ba8baf24147da7761ff"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}
