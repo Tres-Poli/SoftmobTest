@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Common;
+    using Domain.MessageDTO;
     using MessagePipe;
     using UnityEngine;
     using VContainer;
@@ -21,7 +22,11 @@
                 installer.Install(builder);
             }
 
-            Debug.Log("test");
+            builder.RegisterMessageBroker<TilePointedMessage>(messagePipeOptions);
+            builder.RegisterMessageBroker<TileClickedMessage>(messagePipeOptions);
+            builder.RegisterMessageBroker<BuildingClickedMessage>(messagePipeOptions);
+            builder.RegisterMessageBroker<TileOccupiedAlertMessage>(messagePipeOptions);
+            builder.RegisterMessageBroker<NotEnoughResourceAlertMessage>(messagePipeOptions);
             //builder.RegisterMessageBroker<int>(messagePipeOptions);
         }
     }

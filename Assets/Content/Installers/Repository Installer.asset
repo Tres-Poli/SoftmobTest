@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Repository Installer
   m_EditorClassIdentifier: Repositories::Repositories.RepositoryInstaller
   _cameraRepository: {fileID: 11400000, guid: 7be4fae01e61c294e9e85fdcc483dcfd, type: 2}
+  _physicsRepository: {fileID: 11400000, guid: dfb599b8b70cdfe4ea1ebfc18de6a082, type: 2}

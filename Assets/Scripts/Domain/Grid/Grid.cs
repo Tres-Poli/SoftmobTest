@@ -2,23 +2,24 @@
 {
     using System.Runtime.CompilerServices;
     using Buildings;
+    using Common;
 
-    public sealed class Grid
+    public struct Grid
     {
         private readonly int _size;
-        private readonly IBuilding[][] _buildingsMatrix;
+        private readonly BuildingData[][] _buildingsMatrix;
 
         public Grid(int size)
         {
             _size = size;
-            _buildingsMatrix = new IBuilding[size][];
+            _buildingsMatrix = new BuildingData[size][];
             for (int i = 0; i < size; i++)
             {
-                _buildingsMatrix[i] = new IBuilding[size];
+                _buildingsMatrix[i] = new BuildingData[size];
             }
         }
 
-        public bool TryPlace(GridIndex index, IBuilding building)
+        public bool TryPlace(GridIndex index, BuildingData buildingData)
         {
             if (!IsValidIndex(index))
             {
@@ -30,14 +31,14 @@
                 return false;
             }
 
-            _buildingsMatrix[index.x][index.y] = building;
+            _buildingsMatrix[index.x][index.y] = buildingData;
             
             return true;
         }
 
-        public bool TryMove(GridIndex from, GridIndex to, out IBuilding building)
+        public bool TryMove(GridIndex from, GridIndex to, out BuildingData buildingData)
         {
-            building = null;
+            buildingData = BuildingData.defaultValue;
             if (!(IsValidIndex(from) && IsValidIndex(to)))
             {
                 return false;
@@ -48,16 +49,16 @@
                 return false;
             }
 
-            building = _buildingsMatrix[from.x][from.y];
-            _buildingsMatrix[to.x][to.y] = building;
-            _buildingsMatrix[from.x][from.y] = null;
+            buildingData = _buildingsMatrix[from.x][from.y];
+            _buildingsMatrix[to.x][to.y] = buildingData;
+            _buildingsMatrix[from.x][from.y] = BuildingData.defaultValue;
             
             return true;
         }
 
-        public bool TryDelete(GridIndex index, out IBuilding building)
+        public bool TryDelete(GridIndex index, out BuildingData buildingData)
         {
-            building = null;
+            buildingData = BuildingData.defaultValue;
             if (!IsValidIndex(index))
             {
                 return false;
@@ -68,15 +69,15 @@
                 return false;
             }
 
-            building = _buildingsMatrix[index.x][index.y];
-            _buildingsMatrix[index.x][index.y] = null;
+            buildingData = _buildingsMatrix[index.x][index.y];
+            _buildingsMatrix[index.x][index.y] = BuildingData.defaultValue;
             
             return true;
         }
 
-        public bool TryGet(GridIndex index, out IBuilding building)
+        public bool TryGet(GridIndex index, out BuildingData buildingData)
         {
-            building = null;
+            buildingData = BuildingData.defaultValue;
             if (!IsValidIndex(index))
             {
                 return false;
@@ -87,7 +88,7 @@
                 return false;
             }
             
-            building = _buildingsMatrix[index.x][index.y];
+            buildingData = _buildingsMatrix[index.x][index.y];
             
             return true;
         }
@@ -95,7 +96,7 @@
         public bool IsVacant(GridIndex index)
         {
             var building = _buildingsMatrix[index.x][index.y];
-            return building == null;
+            return building.type == BuildingType.Default;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

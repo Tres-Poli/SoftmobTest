@@ -16,19 +16,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Drag",
+                    "name": "Click",
                     "type": "Value",
-                    "id": "b39e578a-2cd8-49f0-9c7d-2d0bb913a912",
+                    "id": "13cc0bd3-aab9-462e-aae6-34c7727076ce",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Click",
-                    "type": "Button",
-                    "id": "13cc0bd3-aab9-462e-aae6-34c7727076ce",
-                    "expectedControlType": "",
+                    "name": "Pointer",
+                    "type": "PassThrough",
+                    "id": "3d038448-d345-4ddf-b4d5-aa9a60cbe717",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -91,19 +91,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "4fcccb65-7d74-477c-9928-ff1ae64c51e3",
-                    "path": "<Pointer>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "One Modifier",
-                    "id": "46aab37e-4f44-447b-a165-ec4346b015c4",
+                    "id": "57e0539d-4279-4127-8fe2-a5186fc90f56",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
@@ -113,8 +102,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
-                    "id": "a7a51166-39a1-401b-9740-0539a3c8ac56",
+                    "name": "Modifier",
+                    "id": "cbb62213-6405-4253-abb9-f66aef4d1f77",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -124,8 +113,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "binding",
-                    "id": "5129b5f0-0107-4b6e-9a7a-f99da25bd8b6",
+                    "name": "Binding",
+                    "id": "87b00e99-b999-42bb-96dc-bdf3cf479adb",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
@@ -133,6 +122,17 @@
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "13f1b4a2-6602-4da1-a4a3-f56fdc519285",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

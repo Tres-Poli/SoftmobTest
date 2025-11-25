@@ -1,3 +1,4 @@
 ﻿{
-  "name": "ContractsInrerfaces"
+  "name": "ContractsInrerfaces",
+  "references":[ "GUID:52fe65892b7d4ba8baf24147da7761ff", "GUID:6eaa6940223d499bbebab641c96be187" ]
 }

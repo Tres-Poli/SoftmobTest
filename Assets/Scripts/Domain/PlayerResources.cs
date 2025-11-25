@@ -2,7 +2,7 @@
 {
     using Common;
 
-    public sealed class PlayerResources
+    public class PlayerResources
     {
         private CityResource _value;
 

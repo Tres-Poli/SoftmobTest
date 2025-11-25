@@ -12,6 +12,7 @@
     {
         public override void Install(IContainerBuilder builder)
         {
+            builder.Register<IPhysicsService, PhysicsService>(Lifetime.Singleton);
             builder.RegisterEntryPoint<CameraService>().As<ICameraService>();
             builder.Register<InputRouterService>(Lifetime.Singleton);
         }

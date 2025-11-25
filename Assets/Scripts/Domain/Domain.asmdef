@@ -2,7 +2,8 @@
     "name": "Domain",
     "rootNamespace": "",
     "references": [
-        "GUID:52fe65892b7d4ba8baf24147da7761ff"
+        "GUID:52fe65892b7d4ba8baf24147da7761ff",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

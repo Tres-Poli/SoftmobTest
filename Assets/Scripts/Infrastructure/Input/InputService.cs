@@ -10,8 +10,12 @@
     public sealed class InputService : IInputService, IDisposable, InputActions.IPlayerActions
     {
         private ReactiveProperty<Vector3> _onLookValue = new();
+        private ReactiveProperty<Vector2> _onPointerClick = new();
+        private ReactiveProperty<Vector2> _onPointer = new();
         public ReactiveProperty<Vector3> onLookValue => _onLookValue;
-        
+        public ReactiveProperty<Vector2> onPointerClick => _onPointerClick;
+        public ReactiveProperty<Vector2> onPointer => _onPointer;
+
         private InputActions _inputActions;
 
         [Inject]
@@ -44,16 +48,19 @@
             }
         }
 
-        public void OnDrag(InputAction.CallbackContext context)
-        {
-            //throw new System.NotImplementedException();
-        }
-
         public void OnClick(InputAction.CallbackContext context)
         {
-            Debug.Log($"Value - {context.ReadValue<Vector2>()}");
-            Debug.Log($"Started - {context.started}");
-            Debug.Log($"Performed - {context.performed}");
+            if (context.performed)
+            {
+                _onPointerClick.Value = context.ReadValue<Vector2>();
+                _onPointerClick.ForceNotify();
+            }
+        }
+
+        public void OnPointer(InputAction.CallbackContext context)
+        {
+            var value = context.ReadValue<Vector2>();
+            _onPointer.Value = value;
         }
 
         public void Dispose()
@@ -62,6 +69,10 @@
             _inputActions.Player.Disable();
             _inputActions.Dispose();
             _inputActions = null;
+
+            _onLookValue.Dispose();
+            _onPointerClick.Dispose();
+            _onPointer.Dispose();
         }
     }
 }
